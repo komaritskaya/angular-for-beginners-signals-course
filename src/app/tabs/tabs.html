@@ -1,4 +1,11 @@
 <nav class="tab-nav">
-  <button class="tab-link active">Beginner</button>
-  <button class="tab-link">Advanced</button>
+  @for (tab of tabs(); track tab.value) {
+    <button
+      class="tab-link"
+      [class.active]="activeTab() === tab.value"
+      (click)="selectTab(tab.value)"
+    >
+      {{ tab.label }}
+    </button>
+  }
 </nav>
